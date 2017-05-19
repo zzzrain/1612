@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08数组的复制</title>
+	<script>
+		var num = 20;
+		var res = num;
+
+		num = 100;
+
+		// console.log(num,res);
+
+
+		// 数据类型
+		// 引用数据类型：数组，对象
+		var arr = [10,20,30];
+		var arr2 = arr;
+
+		arr.push(100);
+
+		console.log(arr2,arr===arr2);//[10,20,30]
+
+
+		// 复制一个数组
+		var city = ['广州','深圳','北京','上海'],city2,city3;
+		var city1 = [];
+
+		// 遍历arr中的每一项,把每个城市写入city数组
+		for(var i=0;i<city.length;i++){
+			city1[i] = city[i];
+		}
+		city2 = city.slice()
+		city3 = city.concat()
+		
+		console.log(city1,arr===city1);//false;
+		console.log(city2,arr===city2);//false;
+		console.log(city3,arr===city3);//false;
+		
+		
+		function show(ar){
+			// var ar = city			
+			ar.push('杭州')
+		}
+		show(city);
+		console.log(city);
+		
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

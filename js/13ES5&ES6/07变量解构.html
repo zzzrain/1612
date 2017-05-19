@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>06ES6的变量声明</title>
+	<script>
+//		var a = 10;
+//		var b = 10;
+//		var c = 20;
+//		
+//		var a=10,b=10,c=20;
+		
+		//利用解构一次声明多个变量
+		var [a,b,c] = [10,20,30];
+		console.log(a,b,c)
+		//打乱顺序
+		var {a:name,b:gender,c:age} = {c:18,b:'famale',a:'nike'}
+		console.log(name,gender,c)
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>真实烟花</title>
+    <style>
+        html,body{margin: 0;padding: 0;background: #000;height: 100%;overflow: hidden;}
+        .tip{height: 10%;border-bottom: 1px solid #fff;box-sizing: border-box;text-align: center;position: relative;}
+        .tip .auto{padding: 5px 10px;background: #f90;border-radius: 10px;color: #fff;margin-top: 40%;position: absolute;top: 50%;display: block;left: 50%;width: 80px;height: 20px;margin-left: -45px;margin-top: -15px;}
+        .screen{height: 90%;position: relative;}
+        .fire{border-radius: 50%;width: 3px;height: 30px;position: absolute;top:100%;}
+        .spark{border-radius: 50%;width: 10px;height: 10px;position: absolute;}
+    </style>
+    <script src="js/common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            
+            var screen = document.querySelector('.screen');
+            
+            var auto = document.querySelector('.auto');
+            
+            var isTrue = true;
+            auto.onclick = function(){
+                if(isTrue){
+                    var timer = setInterval(function(){
+                        var x = randomNum(0,screen.offsetWidth);
+                        var y = randomNum(0,screen.offsetHeight);
+                        var f = new Firework(x,y);
+                        f.init();
+                        f.move();
+                    },500)
+                    isTrue = false;
+                }else{
+                    clearInterval(timer);
+                }
+            }
+            
+            screen.onclick = function(e){
+                var x = e.clientX;
+                var y = e.clientY;
+                
+                console.log(x,y);
+                
+                var f = new Firework(x,y);
+                
+                f.init();
+                f.move();
+            }
+            
+            function Firework(x,y){
+                this.color = randomColor();
+                this.left = x;
+                this.top = y;
+            }
+            
+            Firework.prototype = {
+                constructor : Firework,
+                
+                init : function(){
+                    var fire = document.createElement('div');
+                    fire.style.left = this.left + 'px';
+                    fire.style.backgroundColor = this.color;
+                    fire.classList.add('fire');
+                    screen.appendChild(fire);
+                    this.ele = fire;
+                },
+                
+                move : function(){
+                    animate(this.ele,{top:this.top,height:3},function(){
+                        this.boom();
+                    }.bind(this));
+                },
+                
+                boom : function(){
+                    for(var i=0;i<20;i++){
+                        var deg = (360/20)*i;
+                        var s = new Spark(this.left,this.top,deg);
+                        s.init();
+                        s.move();
+                    }
+                    this.remove();
+                },
+                
+                remove : function(){
+                    this.ele.parentElement.removeChild(this.ele);
+                }
+            }
+            
+            function Spark(x,y,deg){
+                this.color = randomColor();
+                this.left = x;
+                this.top = y;
+                this.radius = 150;
+                this.radian = deg*Math.PI/180;
+            }
+            
+            Spark.prototype = {
+                constructor : Spark,
+                
+                init : function(){
+                    var spark = document.createElement('div');
+                    spark.classList.add('spark');
+                    spark.style.cssText += `left:${this.left}px;background-color:${this.color};top:${this.top}px;`;
+                    screen.appendChild(spark);
+                    this.ele = spark;
+                },
+                
+                move : function(){
+                    var oLeft = parseInt(Math.cos(this.radian)*this.radius + this.left);
+                    var oTop = parseInt(Math.sin(this.radian)*this.radius + this.top);
+                    console.log(oLeft,oTop);
+                    animate(this.ele,{left:oLeft,top:oTop,opacity:0},function(){
+                        this.remove();
+                    }.bind(this))
+                },
+                
+                remove : function(){
+                    this.ele.parentElement.removeChild(this.ele);
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="tip">
+        <span class="auto">自动播放</span>
+    </div>
+    <div class="screen"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/*
+	变量正常情况下只能用在属性值中
+ */
+@media only screen and (max-width: 780px) {
+  .box {
+    font-size: 20px;
+  }
+}
+
+/*占位符*/
+.datalist li, .movie div {
+  padding-left: 10px;
+  border-bottom: 1px dotted #ccc;
+  font-size: 14px;
+}
+
+h1, .title {
+  font-size: 20px;
+  color: #666;
+  border-bottom: 1px solid #ddd;
+}
+
+/*占位符的使用*/
+.content {
+  width: 200px;
+  height: 100px;
+  background-color: #f60;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #cc5200;
+}
+
+h1, .title {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 13.33333px;
+}
+
+h4 {
+  font-size: 10px;
+}
+
+h5 {
+  font-size: 8px;
+}
+
+h6 {
+  font-size: 6.66667px;
+}

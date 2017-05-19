@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/*
+	变量正常情况下只能用在属性值中
+ */
+body {
+  margin: 0;
+  font-size: 14px;
+  background: #fff;
+}
+
+a {
+  color: #f60;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel {
+  border-left: 10px;
+  padding: 5px;
+  margin-left: 5px;
+  position: relative;
+  border: 5px solid #ddd;
+  width: 810px;
+  height: 320px;
+  overflow: hidden;
+}
+
+.carousel ul {
+  position: relative;
+}
+
+.carousel ul li {
+  float: left;
+}
+
+.carousel ul img {
+  display: block;
+}
+
+.carousel .page {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.carousel .page span {
+  display: inline-block;
+  margin: 0 5px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #efefef;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.carousel .page span.active {
+  background-color: #f60;
+  color: #fff;
+}
+
+.carousel .prev {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background: url(img/btn.gif) no-repeat;
+  color: #fff;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.prev {
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.next {
+  right: -5px;
+  top: 50%;
+  margin-left: -25px;
+  background-position: 0 -60px;
+}
+
+.homeage {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.homeage h1 {
+  color: #00f;
+}
+
+.homeage img {
+  width: 200px;
+  border: 1px solid #fff;
+}
+
+.homeage img:hover {
+  border-color: #f60;
+}

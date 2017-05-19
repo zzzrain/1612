@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="title" placeholder="题目" />
+		<input id="text" placeholder="内容" />
+		<button onclick="submit()">提交</button>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script>
+		function submit() {
+			$.ajax({
+				type: 'POST',
+				url: 'http://localhost:3000/add/',
+				data: {
+					title: $('#title').val(),
+					text: $('#text').val(),
+				}
+			})
+		}
+	</script>
+</html>

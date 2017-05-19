@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<p>{{name}}</p>
+			<a href="#/index">index</a>
+			<a href="#/home">home</a>
+			<router-view></router-view>
+		</div>
+	</body>
+	<script src="js/vue2.0.js"></script>
+	<script src="js/vue-router.js"></script>
+	<script>
+		var firstCp = Vue.extend({
+			template: "<p>第一个组件</p>"
+		})
+		var secondCp = Vue.extend({
+			template: "<p>第二个组件</p>"
+		})
+
+		var router = new VueRouter({
+			routes: [{
+				path: "/index",
+				component: firstCp
+			}, {
+				path: "/home",
+				component: secondCp
+			}]
+		})
+		new Vue({
+			el: "#demo",
+			data: {
+				name: "wscats"
+			},
+			router:router
+		})
+	</script>
+
+</html>

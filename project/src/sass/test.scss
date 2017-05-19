@@ -1,0 +1,38 @@
+@import 'var';
+
+@mixin max-screen($res){
+  @media only screen and ( max-width: $res )
+  {
+    @content;
+  }
+}
+
+
+@include max-screen(780px){
+	.box{font-size:20px;}
+}
+
+/*占位符*/
+%list{padding-left:10px;border-bottom:1px dotted #ccc;font-size:14px;}
+
+h1{font-size:20px;color:#666;border-bottom:1px solid #ddd;}
+
+.title{@extend h1}
+
+
+/*占位符的使用*/
+.datalist li{@extend %list}
+
+.movie div{@extend %list}
+
+
+.content{width:100px*2;height:100px;background-color:$mainColor}
+.box{width:100px;height:100px;background-color:darken($mainColor,10%)}
+
+
+//@for $var from <start> through <end>（包含end值）
+//@for $var from <start> to <end>（不包含en值）
+
+@for $idx from 1 through 6{
+	h#{$idx}{font-size:40px/$idx}
+}
