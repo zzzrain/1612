@@ -9,7 +9,6 @@ module.exports = {
 		path: __dirname + "/public",
 		filename: "bundle.js"
 	},
-	//vue2.0加上这句，然后暴露全局的vue函数
 	resolve: {
 		alias: {
 			vue: 'vue/dist/vue.js',

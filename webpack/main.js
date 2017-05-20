@@ -1,24 +1,24 @@
-
+//var $ = require("jquery");
+//require  module.exports
+//import export
 import $ from "jquery";
 window.$ = $;
 //import "weui";
 //require("weui");
-
 //cnpm install vue
 import Vue from "vue";
 //cnpm install vue-router
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-import Vuex from 'vuex';
-Vue.use(Vuex);
-
-//引入更改过的mui
+import Vuex from 'vuex'
+Vue.use(Vuex)
+	//引入mui
 require("./mui/css/mui.css")
 window.mui = require("mui")
-
-//首页
-import index from "./components/index.vue"
-//主题
+	//组件
+	//首页
+var index = require("./components/index.vue")
+	//主题
 import topics from "./components/index/topics.vue"
 //收藏
 import collect from "./components/index/collect.vue"
@@ -29,8 +29,7 @@ var home = require("./components/home.vue")
 var weui = require("./components/weui.vue")
 var muiCp = require("./components/mui/mui.vue")
 var muiCp2 = require("./components/mui/mui2.vue")
-
-//路由
+	//路由
 var router = new VueRouter({
 		routes: [{
 			path: "/index",
@@ -57,9 +56,6 @@ var router = new VueRouter({
 		}, {
 			path: "/mui2",
 			component: muiCp2
-		}, {
-			path: "/",
-			redirect: "/index"
 		}]
 	})
 	//状态管理
@@ -81,7 +77,7 @@ var store = new Vuex.Store({
 new Vue({
 	el: "#demo",
 	template: `
-		<router-view></router-view>
+			<router-view></router-view>
 	`,
 	router,
 	store,

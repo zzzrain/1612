@@ -11,11 +11,11 @@
 
 
 			// 后端代理方案：
-			/*var searchurl = 'http://localhost/1612/ajax/baidusearch.php';
+			var searchurl = 'ajax/baidusearch.php';
 
 			// 输入时发送请求
 			// oninput
-			keyword.oninput = ()=>{
+			/*keyword.oninput = ()=>{
 				var _keyword = keyword.value;
 
 				var xhr = new XMLHttpRequest();
@@ -23,6 +23,13 @@
 				xhr.open('get',searchurl + '?key='+_keyword,true);
 
 				xhr.send(null);
+
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4 && xhr.status == 200){
+						var data = xhr.responseText
+						console.log(data)
+					}
+				}
 			}*/
 
 
