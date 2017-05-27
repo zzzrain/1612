@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/babel.js"></script>
+	<body>
+		<div id="demo"></div>
+	</body>
+	<!--把js代码交给babel去处理-->
+	<script type="text/babel">
+		var name = "xie";
+		var bool = false;
+		var color = {
+			color:"red",
+			fontSize:"26px"
+		}
+		var arr = ["aaa","bbb"];
+		ReactDOM.render(
+			<div>
+				<h1>Hello</h1>
+				<h2>World</h2>
+				<p>{name}</p>
+				<p>{bool?"真的":"假的"}</p>
+				{/*注释*/}
+				<p style={color}>{2+1}</p>
+				<p>{arr}</p>
+				<input value={name} />
+			</div>
+			,document.getElementById("demo")
+		)
+	</script>
+</html>

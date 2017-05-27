@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/babel.js"></script>
+	<body>
+		<div id="demo"></div>
+	</body>
+	<script type="text/babel" src="./components/FirstCp.jsx"></script>
+	<!--把js代码交给babel去处理-->
+	<script type="text/babel">
+		var name = "yao";
+		var SecondCp = React.createClass({
+			//model
+			getInitialState:function(){
+				return {
+					name:"xie",
+					language:"English"
+				}
+			},
+			getDefaultProps:function(){
+				return {
+					skill:"初始化的值"
+				}
+			},
+			//绑定函数
+			testClick:function(){
+				console.log("hello")
+			},
+			componentDidMount:function(){
+				console.log("Hello")
+			},
+			//getInitialState:初始化值
+			//this.setState修改值
+			//this.state读取值
+			//this.props读取组件的属性值
+			handleChange:function(event){
+				console.log(event.target.value)
+				this.setState({
+					name:event.target.value
+				})
+			},
+			//view
+			render:function(){
+				return <p><input value={this.state.name} onChange={this.handleChange} />{this.state.name} speak {this.state.language} <span>{this.props.skill}</span><button onClick={this.testClick}>Ok</button></p>
+			}
+		})
+		ReactDOM.render(
+			<div>
+				<FirstCp/>
+				<SecondCp skill="ps" />
+				<SecondCp  />
+			</div>
+			,document.getElementById("demo")
+		)
+	</script>
+</html>

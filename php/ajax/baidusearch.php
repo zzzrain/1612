@@ -4,7 +4,7 @@
 
 	// 百度下拉搜索
 	$keyword = isset($_GET['key']) ? $_GET['key'] : '';
-	$url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' . $keyword.'&json=1&cb=getJson';
+	$url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='.$keyword.'&json=1&cb=getJson';
 
 	$res = file_get_contents($url);
 

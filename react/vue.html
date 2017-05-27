@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/vue.js"></script>
+
+	<body>
+		<div id="demo"></div>
+	</body>
+	<script>
+		Vue.component("firstCp",{
+			//beforeCreate
+			//created
+			
+			//beforeMounted
+			//mounted
+			
+			//update
+			//beforeUpdated
+			
+			//destory
+			//beforeDestory
+			props:["abc"],
+			//view
+			template:"<p >第一个组件 {{name}}</p>",
+			data(){
+				//model
+				return {
+					name:"abcdefg"
+				}
+			},
+			methods:{
+				//this.name = 
+			},
+			mounted:function{
+				
+			}
+		})
+		new Vue({
+			el: "#demo",
+			data: {
+				name: "xie",
+				color: {
+					color: "red",
+					fontSize: "26px"
+				}
+			},
+			template: `
+				<div>
+					<h1>Hello</h1>
+					<h2>World</h2>
+					<input v-model="name" />
+					<p :style="color">{{name}}</p>
+					<first-cp :abc="name"></first-cp>
+				</div>
+			`
+		})
+	</script>
+	
+
+</html>

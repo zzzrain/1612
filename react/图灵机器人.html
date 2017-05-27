@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/babel.js"></script>
+	<script src="js/jquery.js"></script>
+
+	<body>
+		<div id="demo"></div>
+	</body>
+	<!--把js代码交给babel去处理-->
+	<script type="text/babel">
+		var Turing = React.createClass({
+			getInitialState:function(){
+				return {
+					answer:"",
+					text:"Hello World"
+				}
+			},
+			handelChange:function(event){
+				this.setState({
+					answer:event.target.value
+				})
+			},
+			send:function(){
+				$.ajax({
+					url:"http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf",
+					data:{
+						info:this.state.answer
+					},
+					type:"GET",
+					success:function(data){
+						console.log(data)
+						this.setState({
+							text:data.text
+						})
+					}.bind(this)
+				})
+			},
+			render:function(){
+				return <div>
+					<h1>{this.props.name}</h1>
+					<input onChange={this.handelChange} />
+					<button onClick={this.send}>发送</button>
+					<p>{this.state.text}</p>
+				</div>;
+			}
+		})
+		ReactDOM.render(
+		<div>
+			<Turing name="图灵机器人" />
+		</div>
+		,document.getElementById("demo") )
+	</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--view-->
+			<p>{{name}}</p>
+			<xheader name="ps" show="true"></xheader>
+			<xheader name="js" show="false"></xheader>
+			<button ng-click="Click()"></button>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('app',[]);
+		app.controller('indexCtrl',function($scope){
+			//model
+			$scope.name = "abcdefg";
+			$scope.Click = function(){
+				
+			}
+		})
+		app.directive('xheader',function(){
+			return {
+				template:"<p>第一个组件 {{skill}}</p><p ng-show='isShow'>显示</p>",
+				scope:{},
+				link:function(scope,ele,attr){
+					scope.skill = attr.name;
+					scope.isShow = attr.show;
+				}
+			}
+		})
+	</script>
+</html>
