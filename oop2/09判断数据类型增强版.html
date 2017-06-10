@@ -6,23 +6,25 @@
 	<script>
 		var name = [1,2,3];
 
-		console.log(typeof name);//object
-
 		function type(data){
-			// Object.prototype.toString();
+			console.log(Object.prototype);
+			
+			var res = Object.prototype.toString();
 
-			// data.toString()
+			console.log(res);
 
 			var res = Object.prototype.toString.call(data);
+
+			console.log(res);
 
 			res = res.slice(8,-1).toLowerCase();
 
 			console.log(res);
 		}
 
-		// type([1,2,3]);//array
-		// type('test');//string
-		// type({});//object
+		type([1,2,3]);//array
+		type('test');//string
+		type({});//object
 	</script>
 </head>
 <body>
